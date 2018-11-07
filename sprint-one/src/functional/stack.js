@@ -5,6 +5,7 @@ var Stack = function() {
     };
 
     // var counter = 0;
+    //{1: a, 2: b};
 
     // Use an object with numeric keys to store values
     // var storage = {};
@@ -20,7 +21,7 @@ var Stack = function() {
         var end = someInstance.size() - 1;
 
         console.log('popping location', end);
-        var result = someInstance.storage[end];
+        var result = someInstance.storage[end]; // >> 
         delete someInstance.storage[end];
         someInstance.counter--;
         return result;
@@ -29,7 +30,8 @@ var Stack = function() {
 
     someInstance.size = function() {
         var result = someInstance.counter;
-        if (result < 0) {
+        console.log('=!', result);
+        if (result <= 0) {
             return 0;
         }
         return result || 0;

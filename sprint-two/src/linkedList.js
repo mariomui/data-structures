@@ -45,7 +45,7 @@ var LinkedList = function() {
       //obj ++
       var checkNode = list.head;
       while ( checkNode.value ) {
-        debugger;
+        // debugger;
         console.log(checkNode.value);
         if ( checkNode.value === target) {
           return true;

@@ -34,7 +34,7 @@ var stackMethods = {
     pop: function() {
         var end = this.size() - 1;
 
-        console.log('popping location', end);
+        // console.log('popping location', end);
         var result = this.storage[end]; // >> 
         delete this.storage[end];
         this.counter--;
@@ -43,7 +43,7 @@ var stackMethods = {
     },
     size: function() {
         var result = this.counter;
-        console.log('**', result);
+        // console.log('**', result);
         if (result <= 0 || result === undefined) {
             return 0;
         }

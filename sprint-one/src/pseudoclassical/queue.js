@@ -1,6 +1,44 @@
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+    // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+    // but try not not reference your old code in writing the new style.
+    this.storage = {};
+    this.magic = 0;
+    this.length = 0;
+    this.offSet = 0;
+
 };
 
+var qclone = new Queue();
 
+
+
+
+Queue.prototype.enqueue = function(value) {
+    this.length++;
+    this.storage[this.offSet] = value;
+    console.log(this.offSet, '!');
+    console.log(length);
+    this.offSet++;
+};
+
+Queue.prototype.dequeue = function() {
+    if (this.length !== 0) {
+        this.length--;
+    }
+    var temp = this.storage[this.magic];
+    this.magic++;
+
+    return temp;
+};
+
+Queue.prototype.size = function() {
+    // if (!size) {
+    //     return 0;
+    // }
+    // if (this.length < 0) {
+    //     this.length = 0;
+    //     return this.length;
+
+    // }
+    return this.length || 0;
+};

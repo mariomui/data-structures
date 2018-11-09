@@ -1,20 +1,56 @@
 var Tree = function(value) {
-  var newTree = {};
-  newTree.value = value;
-
+  var newTree = {
+    value: value,
+    children: []
+  };
+  // newTree.value = value;
+  
+  _.extend(newTree, treeMethods);
   // your code here
-  newTree.children = null;  // fix me
-
+  // newTree.children = [];  // fix me
   return newTree;
 };
 
-var treeMethods = {};
+var treeMethods = {
 
-treeMethods.addChild = function(value) {
-};
+  addChild : function(value) {
+  // if (this.value === undefined) {
+  //   this.value = value;
+  //   debugger;
+  // } else {
+    // debugger;
+  // if( value === 7){
+  //   debugger;
+  // }
+    var treer = Tree(value);
+    this.children.push(treer);
+  // }
+  },
 
-treeMethods.contains = function(target) {
-};
+  contains : function(target) {
+    var accum = false;
+
+    if(this.children.length > 0 ){
+      for(var i =0 ; i < this.children.length; i++){
+        if(this.children[i].value === target){
+          accum = accum || true;
+        } else {
+          accum = accum || this.contains.call(this.children[i] , target);
+
+        }
+      } 
+    }
+  return !!accum;
+}
+  
+
+/*
+if children length 0
+check if value 
+
+*/
+}
+
 
 
 

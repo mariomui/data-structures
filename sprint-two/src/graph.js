@@ -26,12 +26,13 @@ Graph.prototype.removeNode = function(node) {
     for(var key in this.list[node]){
         edgeKey.push(key);
     }
-    delete this.list[node];
-    edgeKey.forEach(function (item){
-        self.removeEdge(item, node);
-        //so for 'a','b' 
+    
+    edgeKey.forEach(function (item,key){
+       
+            self.removeEdge(item, node);
         
     })
+    delete this.list[node];
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -49,16 +50,21 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 Graph.prototype.removeEdge = function(item, node) {
     // delete this.list[fromNode, toNode];
     // delete this.list[toNode, fromNode];
+    delete this.list[node][item];
+
     delete this.list[item][node];
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-    //i travel graphie.list
-    // if graghie.list[key] === object then i wan to recurse
-    // if thing is undefined.
-    
+    //i travel the graphie.list
+
+    //if not an object, do nothin
+    // object, cb but also lopp through it and do
  
+    for (var key in this.list) {
+        cb(key);
+    }
     
 };
 

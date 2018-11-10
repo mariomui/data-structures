@@ -62,10 +62,10 @@ BinarySearchTree.prototype.depthFirstLog = function(func){
     //base case no children
     func(this.value);
 
-    // if ( !this.left && !this.right) {
-    //     //do nothing
-    //     return;
-    // }
+    if ( !this.left && !this.right) {
+        //do nothing
+        return;
+    }
 
     if (this.left) {
         //recurse
@@ -79,7 +79,7 @@ BinarySearchTree.prototype.depthFirstLog = function(func){
         this.right.depthFirstLog(func);
     }
     //recursive case
-    return;
+    // return;
 }
 
 

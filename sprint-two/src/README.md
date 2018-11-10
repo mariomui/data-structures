@@ -71,3 +71,5 @@ var getIndexBelowMaxForKey = function(str, max)
 
 * A .contains() method, takes any input and returns a boolean reflecting whether it can be found as the value of the target node or any descendant node
 What is the time complexity of the above functions?
+
+For each of the data structures you have implemented, go back and add at least one additional unit test. If possible, try to add a test that will require you improve your implementation in order to make the test pass.

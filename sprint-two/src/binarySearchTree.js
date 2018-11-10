@@ -1,32 +1,39 @@
 var BinarySearchTree = function(value) {
-    var obj = Object.create(searchMethod);
+    var obj = Object.create(BinarySearchTree.prototype);
     obj.value = value;
     obj.left = null;
     obj.right = null;
    return obj;
 };
 
-var searchMethod = {};
+// var node = function (value){
+//     var nodes = {};
+//     nodes.left = null;
+//     nodes.right = null;
+//     nodes.value = value;
+//     return nodes
+// }
+
 //this : binarysearchbaby
-searchMethod.insert = function(value) {
+BinarySearchTree.prototype.insert = function(value) {
     //create the node
     //insert it in left or right
-    debugger
-    var bstBaby = BinarySearchTree(value); 
+
+    let bstBaby = node(value); 
     if (value > this.value) {
         this.right = bstBaby;
-    } else {
+    } else if (value < this.value) {
         this.left = bstBaby;
-    }
+    } 
 
 
 }
 
-searchMethod.contains = function(){
+BinarySearchTree.prototype.contains = function(){
     return 5;
 }
 
-searchMethod.depthFirstLog = function(){
+BinarySearchTree.prototype.depthFirstLog = function(){
     return 7;
 
 }

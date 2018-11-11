@@ -33,6 +33,10 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var targetArr = this._storage.get(index);
+  var temp = targetArr || 'what';
+  if( temp === 'what' || targetArr.length === 0){
+    return undefined;
+  }
   for (var i = 0; i < targetArr.length; i++) {
     const currElem = targetArr[i];
     if (currElem[0] === k) {
@@ -48,12 +52,19 @@ HashTable.prototype.remove = function(k) {
 
     // item = undefined;
     var targetArr = this._storage.get(index);
+    var temp = targetArr || 'what';
+    if( temp === 'what' || targetArr.length === 0){
+      return false;
+    }
+
     for (var i = 0; i < targetArr.length; i++) {
       const currElem = targetArr[i];
+      debugger;
       if (currElem[0] === k) {
          targetArr.splice(i,1);
       }
     }
+    
 
 };
 

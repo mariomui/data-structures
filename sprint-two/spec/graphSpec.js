@@ -68,4 +68,20 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('*should return false when prarameters are insufficient', function(){
+    var connectToSix = function(item) {
+      graph.addEdge(item, 6);
+    };
+    graph.addNode(5);
+    graph.addNode(2);
+    graph.addNode(1);
+    graph.addNode(3);
+    graph.forEachNode(connectToSix);
+    expect(graph.hasEdge(2, 6)).to.equal(false);
+    expect(graph.hasEdge(1, 6)).to.equal(false);
+    expect(graph.hasEdge(3, 6)).to.equal(false);
+    expect(graph.hasEdge(5, 6)).to.equal(false);
+  })
+
 });

@@ -12,9 +12,11 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
+  list.counter = 0;
   counter = 0;
 
   list.addToTail = function(value) {
+    list.counter++;
     var node = Node(value);
     //if both head and tail are null refer head and tail to the same node
     if ( list.head === null && list.tail === null) {
@@ -32,9 +34,11 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
+    list.counter--;
     var old = list.head.value;
     list.head = list.head.next
-    delete list.old;
+    // delete list.old;
+    list.tail = null;
     return old;
   };
 
@@ -43,8 +47,11 @@ var LinkedList = function() {
       //if obj. value === target return.
       //keep going.
       //obj ++
+      if (list.counter === 0) {
+        return false;
+      }
       var checkNode = list.head;
-      while ( checkNode.value ) {
+      while ( checkNode.value && checkNode ) {
         // debugger;
         console.log(checkNode.value);
         if ( checkNode.value === target) {

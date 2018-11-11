@@ -39,4 +39,11 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should tell you that the tree already has the insert value', function() {
+    
+    binarySearchTree.insert(1);
+    expect(binarySearchTree.insert(1)).to.equal('already has the unique value');
+  });
+
 });

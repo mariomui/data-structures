@@ -12,6 +12,7 @@ BinarySearchTree.prototype.insert = function(value) {
     //create the node
     //insert it in left or right
     //bstBaby = the node usually in this.right
+    
     let bstBaby = BinarySearchTree(value); 
     if (value > this.value) {
         //if right node exists, go into the object right node and run insert using the value.
@@ -29,7 +30,9 @@ BinarySearchTree.prototype.insert = function(value) {
         }
         this.left.insert(value);
     } 
-
+    if(this.contains(value) === true ){
+        return 'already has the unique value';
+    }
 
 }
 
@@ -61,12 +64,12 @@ BinarySearchTree.prototype.contains = function(target){
 BinarySearchTree.prototype.depthFirstLog = function(func){
     //base case no children
     func(this.value);
-
+    
     if ( !this.left && !this.right) {
         //do nothing
         return;
     }
-
+    
     if (this.left) {
         //recurse
         // func(this.left.value);
